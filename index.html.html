@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enrico Garcia — Operations &amp; Executive Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1826;
+    --bg-soft:#0E1E30;
+    --panel:#122A40;
+    --panel-2:#16324B;
+    --line:#25445F;
+    --line-soft:#1B3247;
+    --text:#EDF1EE;
+    --text-dim:#9FB2C4;
+    --text-faint:#6C8298;
+    --accent:#E8A33D;
+    --accent-2:#F2C27A;
+    --rust:#C1654A;
+    --green:#6FAE8B;
+    --blue:#5B8DBE;
+    --purple:#9B87C4;
+    --amber:#E8C468;
+    --gray:#3B506B;
+    --f-display:'Space Grotesk', sans-serif;
+    --f-body:'IBM Plex Sans', sans-serif;
+    --f-mono:'IBM Plex Mono', monospace;
+    --radius:6px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background-color:var(--bg);
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size:42px 42px;
+    background-attachment:fixed;
+    color:var(--text);
+    font-family:var(--f-body);
+    line-height:1.6;
+    font-size:16px;
+  }
+  h1,h2,h3,h4{
+    font-family:var(--f-display);
+    font-weight:600;
+    line-height:1.15;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0 0 1em 0;}
+  a{color:inherit;}
+  ul{margin:0;padding:0;list-style:none;}
+  img{max-width:100%;display:block;}
+  .mono{font-family:var(--f-mono);}
+
+  .container{max-width:1140px;margin:0 auto;padding:0 28px;}
+  @media (max-width:640px){.container{padding:0 20px;}}
+
+  section{padding:96px 0;position:relative;}
+  section + section{border-top:1px solid var(--line-soft);}
+  @media (max-width:800px){section{padding:64px 0;}}
+
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:2.1rem;margin-bottom:14px;}
+  .section-head h2::after{
+    content:"";
+    display:block;
+    width:56px;height:3px;
+    background:var(--accent);
+    margin-top:16px;
+  }
+  .section-head p{color:var(--text-dim);font-size:1.02rem;}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--f-body);font-weight:600;font-size:0.92rem;
+    padding:13px 22px;border-radius:var(--radius);
+    text-decoration:none;cursor:pointer;border:1px solid transparent;
+    transition:transform .12s ease, background .15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--accent);color:#1a1305;}
+  .btn-primary:hover{background:var(--accent-2);}
+  .btn-outline{background:transparent;border-color:var(--line);color:var(--text);}
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent-2);}
+  .btn-sm{padding:9px 16px;font-size:0.85rem;}
+  .btn-row{display:flex;flex-wrap:wrap;gap:12px;}
+
+  /* ---------- Header ---------- */
+  header.site-header{
+    position:sticky;top:0;z-index:100;
+    backdrop-filter:blur(10px);
+    background:rgba(11,24,38,0.85);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+  .brand-mark{
+    width:34px;height:34px;border:1.5px solid var(--accent);border-radius:4px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--f-mono);font-size:0.8rem;color:var(--accent-2);font-weight:500;
+  }
+  .brand-name{font-family:var(--f-display);font-weight:600;font-size:1rem;}
+  .brand-role{font-size:0.72rem;color:var(--text-faint);}
+
+  nav.nav-links{display:flex;gap:28px;}
+  nav.nav-links a{
+    font-size:0.9rem;color:var(--text-dim);text-decoration:none;
+    padding:6px 0;border-bottom:2px solid transparent;transition:color .15s, border-color .15s;
+  }
+  nav.nav-links a:hover{color:var(--text);border-color:var(--accent);}
+
+  .nav-cta{display:flex;align-items:center;gap:16px;}
+  .hamburger{display:none;background:none;border:1px solid var(--line);border-radius:4px;width:40px;height:40px;color:var(--text);cursor:pointer;align-items:center;justify-content:center;}
+  .hamburger span{display:block;width:18px;height:2px;background:currentColor;position:relative;}
+  .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor;}
+  .hamburger span::before{top:-6px;}
+  .hamburger span::after{top:6px;}
+
+  .mobile-panel{display:none;flex-direction:column;gap:2px;padding:8px 0 20px;border-top:1px solid var(--line-soft);}
+  .mobile-panel a{padding:12px 4px;color:var(--text-dim);text-decoration:none;font-size:0.95rem;border-bottom:1px solid var(--line-soft);}
+  .mobile-panel.open{display:flex;}
+
+  @media (max-width:860px){
+    nav.nav-links{display:none;}
+    .nav-cta .btn{display:none;}
+    .hamburger{display:flex;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding-top:88px;padding-bottom:80px;border-top:none;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:start;}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+  .hero-role{
+    font-family:var(--f-mono);font-size:0.85rem;color:var(--accent-2);
+    margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(2.1rem, 4.2vw, 3.3rem);color:var(--text);margin-bottom:22px;}
+  .hero-sub{font-size:1.1rem;color:var(--text-dim);max-width:520px;margin-bottom:32px;}
+  .fact-strip{
+    display:flex;flex-wrap:wrap;gap:0;
+    border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;margin-top:36px;
+  }
+  .fact{flex:1 1 140px;padding:14px 18px;border-right:1px solid var(--line);}
+  .fact:last-child{border-right:none;}
+  .fact-label{font-family:var(--f-mono);font-size:0.7rem;color:var(--text-faint);margin-bottom:4px;}
+  .fact-value{font-size:0.9rem;color:var(--text);font-weight:500;}
+  @media (max-width:600px){.fact{border-right:none;border-bottom:1px solid var(--line);flex:1 1 100%;}}
+
+  .hero-panel{
+    border:1px solid var(--line);border-radius:8px;background:var(--panel);
+    padding:28px;position:relative;
+  }
+  .hero-panel-label{font-family:var(--f-mono);font-size:0.72rem;color:var(--text-faint);margin-bottom:18px;}
+  .flow{display:flex;flex-direction:column;gap:0;}
+  .flow-node{
+    display:flex;align-items:center;gap:12px;
+    padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--bg-soft);
+    font-size:0.88rem;
+  }
+  .flow-node svg{flex-shrink:0;width:18px;height:18px;color:var(--accent-2);}
+  .flow-arrow{
+    display:flex;align-items:center;justify-content:center;padding:8px 0;
+    color:var(--text-faint);font-family:var(--f-mono);font-size:0.75rem;
+  }
+  .flow-arrow::before{content:"↓ ";}
+  .flow-result{
+    margin-top:2px;padding:14px;border:1px dashed var(--accent);border-radius:6px;
+    background:rgba(232,163,61,0.08);font-size:0.88rem;color:var(--accent-2);font-weight:600;
+    text-align:center;
+  }
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;}
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr;}}
+  .about-block{margin-bottom:26px;}
+  .about-block h4{font-size:0.78rem;font-family:var(--f-mono);color:var(--accent-2);margin-bottom:10px;text-transform:none;}
+  .about-block p{color:var(--text-dim);font-size:1rem;}
+  .side-panel{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:26px;}
+  .side-panel h4{font-size:0.95rem;margin-bottom:16px;}
+  .kv-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line-soft);font-size:0.88rem;}
+  .kv-row:last-child{border-bottom:none;}
+  .kv-row span:first-child{color:var(--text-faint);}
+  .kv-row span:last-child{color:var(--text);text-align:right;}
+  .cert-list{margin-top:26px;}
+  .cert-list li{
+    padding:9px 0 9px 18px;position:relative;font-size:0.88rem;color:var(--text-dim);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .cert-list li:last-child{border-bottom:none;}
+  .cert-list li::before{content:"";position:absolute;left:0;top:16px;width:7px;height:7px;border:1.5px solid var(--accent);border-radius:1px;}
+
+  /* ---------- Services ---------- */
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:860px){.service-grid{grid-template-columns:1fr;}}
+  .service-card{
+    border:1px solid var(--line);border-radius:8px;padding:28px;background:var(--panel);
+    cursor:pointer;transition:border-color .15s ease, transform .15s ease;
+    text-align:left;
+  }
+  .service-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+  .service-icon{
+    width:42px;height:42px;border:1px solid var(--line);border-radius:6px;
+    display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--accent-2);
+  }
+  .service-icon svg{width:22px;height:22px;}
+  .service-card h3{font-size:1.1rem;margin-bottom:10px;}
+  .service-card p{color:var(--text-dim);font-size:0.92rem;margin-bottom:16px;}
+  .service-link{font-family:var(--f-mono);font-size:0.78rem;color:var(--accent-2);}
+
+  /* ---------- Tabs (shared) ---------- */
+  .tabbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px;border-bottom:1px solid var(--line);padding-bottom:0;}
+  .tabbtn{
+    font-family:var(--f-body);font-size:0.92rem;font-weight:600;color:var(--text-faint);
+    background:none;border:none;padding:12px 4px;margin-right:22px;cursor:pointer;
+    border-bottom:2px solid transparent;transition:color .15s, border-color .15s;
+  }
+  .tabbtn:hover{color:var(--text);}
+  .tabbtn.active{color:var(--accent-2);border-color:var(--accent);}
+  .subtabbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
+  .subtabbtn{
+    font-family:var(--f-mono);font-size:0.8rem;color:var(--text-dim);
+    background:var(--panel);border:1px solid var(--line);border-radius:20px;
+    padding:8px 16px;cursor:pointer;transition:all .15s;
+  }
+  .subtabbtn:hover{border-color:var(--accent);color:var(--text);}
+  .subtabbtn.active{background:var(--accent);border-color:var(--accent);color:#1a1305;}
+  .tabpanel{display:none;}
+  .tabpanel.active{display:block;animation:fadein .25s ease;}
+  @keyframes fadein{from{opacity:0;}to{opacity:1;}}
+
+  .case-note{
+    font-size:0.86rem;color:var(--text-faint);border-left:2px solid var(--line);
+    padding:10px 16px;margin-bottom:36px;font-style:italic;
+  }
+
+  /* ---------- Stat cards ---------- */
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:44px;}
+  @media (max-width:760px){.stat-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat-card{border:1px solid var(--line);border-radius:8px;padding:20px;background:var(--panel);}
+  .stat-num{font-family:var(--f-display);font-size:1.7rem;color:var(--accent-2);margin-bottom:6px;}
+  .stat-label{font-size:0.82rem;color:var(--text-dim);}
+
+  /* ---------- Eisenhower matrix ---------- */
+  .matrix-wrap{display:flex;gap:14px;margin-bottom:20px;}
+  .matrix-axis-y{
+    writing-mode:vertical-rl;transform:rotate(180deg);
+    font-family:var(--f-mono);font-size:0.72rem;color:var(--text-faint);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    padding:4px 0;
+  }
+  .matrix-col{flex:1;}
+  .matrix-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;}
+  @media (max-width:700px){.matrix-grid{grid-template-columns:1fr;}}
+  .matrix-cell{border:1px solid var(--line);border-radius:8px;padding:20px;background:var(--panel);}
+  .matrix-cell h5{font-size:0.95rem;margin-bottom:4px;color:var(--text);}
+  .matrix-tag{font-family:var(--f-mono);font-size:0.72rem;color:var(--accent-2);margin-bottom:14px;display:block;}
+  .matrix-cell ul li{font-size:0.85rem;color:var(--text-dim);padding:6px 0 6px 16px;position:relative;border-top:1px solid var(--line-soft);}
+  .matrix-cell ul li:first-child{border-top:none;}
+  .matrix-cell ul li::before{content:"—";position:absolute;left:0;color:var(--text-faint);}
+  .matrix-axis-x{
+    display:flex;justify-content:space-between;font-family:var(--f-mono);
+    font-size:0.72rem;color:var(--text-faint);padding:0 4px;margin-top:10px;
+  }
+
+  /* ---------- Label tree ---------- */
+  .label-tree{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:24px 28px;margin-bottom:8px;}
+  .lt-item{padding:10px 0;}
+  .lt-head{display:flex;align-items:center;gap:10px;font-weight:600;font-size:0.95rem;}
+  .swatch{width:11px;height:11px;border-radius:2px;flex-shrink:0;}
+  .lt-sub{margin:8px 0 0 21px;padding-left:16px;border-left:1px dashed var(--line);}
+  .lt-sub li{font-family:var(--f-mono);font-size:0.82rem;color:var(--text-dim);padding:4px 0;}
+
+  /* ---------- Filter list ---------- */
+  .filter-list li{
+    display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;
+    padding:14px 0;border-top:1px solid var(--line-soft);font-size:0.88rem;
+  }
+  .filter-list li:first-child{border-top:none;}
+  .filter-list .f-trigger{color:var(--text);}
+  .filter-list .f-arrow{color:var(--accent-2);font-family:var(--f-mono);}
+  .filter-list .f-action{color:var(--text-dim);}
+  @media (max-width:640px){.filter-list li{grid-template-columns:1fr;gap:4px;}.filter-list .f-arrow{display:none;}}
+
+  /* ---------- Sweep steps ---------- */
+  .sweep-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px;}
+  @media (max-width:760px){.sweep-row{grid-template-columns:1fr;}}
+  .sweep-card{border:1px solid var(--line);border-radius:8px;padding:20px;background:var(--panel);}
+  .sweep-time{font-family:var(--f-mono);font-size:0.75rem;color:var(--accent-2);margin-bottom:8px;}
+  .sweep-card h5{font-size:0.98rem;margin-bottom:8px;}
+  .sweep-card p{font-size:0.85rem;color:var(--text-dim);margin:0;}
+
+  /* ---------- Calendar timeline ---------- */
+  .toggle-row{display:flex;gap:8px;margin-bottom:22px;}
+  .toggle-btn{
+    font-family:var(--f-mono);font-size:0.82rem;padding:9px 20px;border-radius:20px;
+    border:1px solid var(--line);background:var(--panel);color:var(--text-dim);cursor:pointer;
+  }
+  .toggle-btn.active{background:var(--rust);border-color:var(--rust);color:#fff;}
+  .toggle-btn.active[data-view="after"]{background:var(--green);border-color:var(--green);color:#062018;}
+
+  .timeline-caption{font-size:0.86rem;color:var(--text-dim);margin-bottom:22px;padding:12px 16px;border:1px solid var(--line);border-radius:6px;background:var(--panel);}
+
+  .timeline-wrap{display:flex;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel);}
+  .timeline-ruler{width:56px;flex-shrink:0;position:relative;height:640px;border-right:1px solid var(--line);}
+  .ruler-tick{position:absolute;left:0;right:0;transform:translateY(-50%);font-family:var(--f-mono);font-size:0.68rem;color:var(--text-faint);padding-left:8px;}
+  .ruler-tick::after{content:"";position:absolute;right:0;top:50%;width:6px;height:1px;background:var(--line);}
+  .timeline-track-container{flex:1;position:relative;height:640px;}
+  .timeline-track{position:absolute;inset:0;display:none;}
+  .timeline-track.active{display:block;}
+  .tblock{
+    position:absolute;left:10px;right:10px;border-radius:4px;padding:5px 9px;
+    overflow:hidden;font-size:0.72rem;line-height:1.25;color:#0b1520;font-weight:600;
+    border:1px solid rgba(0,0,0,0.15);
+  }
+  .tblock span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .tblock.buffer{background:var(--gray);opacity:0.55;}
+  .cat-internal{background:var(--blue);}
+  .cat-investor{background:var(--purple);}
+  .cat-client{background:var(--green);}
+  .cat-admin{background:#E0985A;}
+  .cat-personal{background:var(--amber);}
+  .protected{outline:2px dashed var(--accent);outline-offset:-2px;}
+  .delegated{outline:2px dashed #6FCF97;outline-offset:-2px;}
+
+  @media (max-width:760px){
+    .timeline-ruler,.timeline-track-container{height:520px;}
+  }
+
+  .legend-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px;font-size:0.78rem;color:var(--text-dim);}
+  .legend-chip{display:flex;align-items:center;gap:6px;}
+  .legend-dot{width:10px;height:10px;border-radius:2px;}
+
+  /* ---------- Two-col case block (travel / data) ---------- */
+  .pcs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px;}
+  @media (max-width:760px){.pcs-grid{grid-template-columns:1fr;}}
+  .pcs-card{border:1px solid var(--line);border-radius:8px;padding:22px;background:var(--panel);}
+  .pcs-card h5{font-family:var(--f-mono);font-size:0.75rem;color:var(--accent-2);margin-bottom:10px;}
+  .pcs-card p{font-size:0.9rem;color:var(--text-dim);margin:0;}
+
+  .bullet-list li{position:relative;padding:8px 0 8px 20px;font-size:0.92rem;color:var(--text-dim);border-top:1px solid var(--line-soft);}
+  .bullet-list li:first-child{border-top:none;}
+  .bullet-list li::before{content:"›";position:absolute;left:0;color:var(--accent-2);}
+  .bullet-list strong{color:var(--text);}
+
+  .closing-note{
+    margin-top:26px;padding:16px 20px;border:1px solid var(--line);border-radius:8px;
+    background:var(--panel);font-size:0.9rem;color:var(--text-dim);
+  }
+
+  /* ---------- Track record ---------- */
+  .tr-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:56px;}
+  @media (max-width:800px){.tr-grid{grid-template-columns:1fr;}}
+  .tr-card{border:1px solid var(--line);border-radius:8px;padding:26px;background:var(--panel);}
+  .tr-meta{font-family:var(--f-mono);font-size:0.75rem;color:var(--text-faint);margin-bottom:14px;}
+  .tr-card h4{font-size:1.05rem;margin-bottom:16px;}
+  .tr-part{margin-bottom:14px;}
+  .tr-part b{display:block;font-size:0.72rem;font-family:var(--f-mono);color:var(--accent-2);margin-bottom:4px;}
+  .tr-part p{font-size:0.87rem;color:var(--text-dim);margin:0;}
+
+  .results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:760px){.results-grid{grid-template-columns:repeat(2,1fr);}}
+  .result-card{text-align:left;padding:18px 0;border-top:1px solid var(--line-soft);}
+  .result-num{font-family:var(--f-display);font-size:2rem;color:var(--accent-2);}
+  .result-label{font-size:0.8rem;color:var(--text-dim);margin-top:4px;}
+
+  /* ---------- Tools ---------- */
+  .tool-group{margin-bottom:26px;}
+  .tool-group h5{font-family:var(--f-mono);font-size:0.75rem;color:var(--text-faint);margin-bottom:12px;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:0.82rem;color:var(--text-dim);
+    background:var(--panel);
+  }
+
+  /* ---------- Process ---------- */
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media (max-width:900px){.process-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.process-grid{grid-template-columns:1fr;}}
+  .process-card{border:1px solid var(--line);border-radius:8px;padding:22px;background:var(--panel);position:relative;}
+  .process-num{font-family:var(--f-mono);color:var(--accent);font-size:0.85rem;margin-bottom:14px;}
+  .process-card h5{font-size:1rem;margin-bottom:10px;}
+  .process-card p{font-size:0.85rem;color:var(--text-dim);margin:0;}
+
+  /* ---------- Packages ---------- */
+  .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:860px){.pkg-grid{grid-template-columns:1fr;}}
+  .pkg-card{border:1px solid var(--line);border-radius:8px;padding:28px;background:var(--panel);display:flex;flex-direction:column;}
+  .pkg-card.featured{border-color:var(--accent);position:relative;background:var(--panel-2);}
+  .pkg-badge{font-family:var(--f-mono);font-size:0.7rem;color:var(--accent-2);margin-bottom:12px;}
+  .pkg-name{font-size:1.1rem;margin-bottom:6px;}
+  .pkg-fit{font-size:0.82rem;color:var(--text-faint);margin-bottom:18px;}
+  .pkg-price{font-family:var(--f-display);font-size:1.8rem;color:var(--text);margin-bottom:2px;}
+  .pkg-price span{font-size:0.85rem;color:var(--text-faint);font-family:var(--f-body);}
+  .pkg-card ul{margin:20px 0 0 0;flex:1;}
+  .pkg-card ul li{font-size:0.85rem;color:var(--text-dim);padding:8px 0;border-top:1px solid var(--line-soft);}
+  .pkg-card ul li:first-child{border-top:none;}
+
+  /* ---------- Why ---------- */
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media (max-width:760px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{padding:24px 0;border-top:1px solid var(--line-soft);}
+  .why-card:nth-child(-n+2){border-top:none;}
+  @media (max-width:760px){.why-card:nth-child(2){border-top:1px solid var(--line-soft);}}
+  .why-card h5{font-size:1rem;margin-bottom:10px;}
+  .why-card p{font-size:0.88rem;color:var(--text-dim);margin:0;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:start;}
+  @media (max-width:800px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-info{border:1px solid var(--line);border-radius:8px;background:var(--panel);padding:26px;}
+  .contact-row{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line-soft);font-size:0.9rem;}
+  .contact-row:first-child{border-top:none;}
+  .contact-row span:first-child{color:var(--text-faint);}
+  .contact-row a{color:var(--text);text-decoration:none;}
+  .contact-row a:hover{color:var(--accent-2);}
+  .copy-mini{
+    font-family:var(--f-mono);font-size:0.7rem;color:var(--text-faint);
+    background:transparent;border:1px solid var(--line);border-radius:4px;
+    padding:3px 9px;cursor:pointer;transition:all .15s;
+  }
+  .copy-mini:hover{border-color:var(--accent);color:var(--accent-2);}
+  .copy-mini.copied{border-color:var(--green);color:var(--green);}
+
+  footer.site-footer{padding:32px 0;border-top:1px solid var(--line-soft);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:0.8rem;color:var(--text-faint);font-family:var(--f-mono);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-inner">
+    <a href="javascript:void(0)" class="brand" data-scroll="top">
+      <span class="brand-mark">EG</span>
+      <span>
+        <span class="brand-name" style="display:block;">Enrico Garcia</span>
+        <span class="brand-role">Operations &amp; Executive Assistant</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="javascript:void(0)" data-scroll="about">About</a>
+      <a href="javascript:void(0)" data-scroll="services">Services</a>
+      <a href="javascript:void(0)" data-scroll="case-studies">Case Studies</a>
+      <a href="javascript:void(0)" data-scroll="track-record">Track Record</a>
+      <a href="javascript:void(0)" data-scroll="process">Process</a>
+      <a href="javascript:void(0)" data-scroll="packages">Packages</a>
+      <a href="javascript:void(0)" data-scroll="contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-sm" href="https://calendly.com/enricobgarcia-ph/30min" target="_blank" rel="noopener">Book a call</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu"><span></span></button>
+    </div>
+  </div>
+  <div class="container mobile-panel" id="mobilePanel">
+    <a href="javascript:void(0)" data-scroll="about">About</a>
+    <a href="javascript:void(0)" data-scroll="services">Services</a>
+    <a href="javascript:void(0)" data-scroll="case-studies">Case Studies</a>
+    <a href="javascript:void(0)" data-scroll="track-record">Track Record</a>
+    <a href="javascript:void(0)" data-scroll="process">Process</a>
+    <a href="javascript:void(0)" data-scroll="packages">Packages</a>
+    <a href="javascript:void(0)" data-scroll="contact">Contact</a>
+    <a href="https://calendly.com/enricobgarcia-ph/30min" target="_blank" rel="noopener">Book a call →</a>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-role">Operations &amp; Executive Assistant · Based in Laguna, Philippines</div>
+      <h1>I help fast-growing founders fix the chaos in payroll, hiring, and process, so they can spend their time leading instead of managing admin.</h1>
+      <p class="hero-sub">I turn messy inboxes, calendars, and workflows into documented systems a founder — or their whole team — can run without me in the room.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://calendly.com/enricobgarcia-ph/30min" target="_blank" rel="noopener">Book a discovery call</a>
+        <a class="btn btn-outline" href="javascript:void(0)" data-scroll="services">See what I do</a>
+      </div>
+      <div class="fact-strip">
+        <div class="fact"><div class="fact-label">Based in</div><div class="fact-value">Laguna, Philippines</div></div>
+        <div class="fact"><div class="fact-label">Time zone</div><div class="fact-value">PHT / UTC+8</div></div>
+        <div class="fact"><div class="fact-label">Availability</div><div class="fact-value">Full-time, remote</div></div>
+        <div class="fact"><div class="fact-label">Coverage</div><div class="fact-value">US · UK · AU hours</div></div>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="hero-panel-label">How the work flows</div>
+      <div class="flow">
+        <div class="flow-node">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="1"/><polyline points="2,6 12,13 22,6"/></svg>
+          Inbox &amp; calendar audit
+        </div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+          Systems &amp; documentation
+        </div>
+        <div class="flow-arrow"></div>
+        <div class="flow-node">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v4H4z"/><path d="M4 12h10v8H4z"/><circle cx="18" cy="16" r="4"/></svg>
+          Recurring ownership
+        </div>
+        <div class="flow-result">Hours back on your calendar, every week</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:36px;">
+        <h2>About me</h2>
+      </div>
+      <div class="about-block">
+        <h4>The hook</h4>
+        <p>I don't fit neatly into one role — I build the role around what actually needs solving, then make it mine.</p>
+      </div>
+      <div class="about-block">
+        <h4>The story</h4>
+        <p>My love for spreadsheets turned into a career built on trust: hand me a messy process, and I'll turn it into a system a whole team can run without me in the room. That instinct is what pulled me from admin support into full-scale People, Finance, and Operations work.</p>
+      </div>
+      <div class="about-block">
+        <h4>The promise</h4>
+        <p>When you bring me in, you get someone who documents as they go, reports on a clear weekly rhythm, and quietly gives you back hours you'd otherwise spend managing the details — so you can spend them on vision instead.</p>
+      </div>
+    </div>
+    <div>
+      <div class="side-panel">
+        <h4>Quick facts</h4>
+        <div class="kv-row"><span>Full-time paid experience</span><span>Since Dec 2025</span></div>
+        <div class="kv-row"><span>Freelance experience</span><span>Since Aug 2025</span></div>
+        <div class="kv-row"><span>English proficiency</span><span>C1 Advanced (CEFR)</span></div>
+        <div class="kv-row"><span>Languages</span><span>English, Filipino (native)</span></div>
+        <div class="kv-row"><span>Primary work style</span><span>Asynchronous</span></div>
+        <ul class="cert-list">
+          <li>BS Economics, University of the Philippines Los Baños (in progress)</li>
+          <li>Executive Assistant Skills — anticipation, gatekeeping, time management, minute-taking</li>
+          <li>Inbox Audit and Management</li>
+          <li>Calendar Audit and Management</li>
+          <li>Travel and Tourism Management</li>
+          <li>HubSpot Data Management</li>
+          <li>Google Sheets &amp; Google Looker Studio</li>
+          <li>Currently building bookkeeping skills on Coursera</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <h2>What I do</h2>
+      <p>Three focus areas — click any of them to jump straight to how I work and the case studies behind it.</p>
+    </div>
+    <div class="service-grid">
+      <button class="service-card" data-jump="panel-ea" data-maintab="tab-ea">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="1"/><polyline points="2,6 12,13 22,6"/></svg>
+        </div>
+        <h3>Executive Assistance</h3>
+        <p>Inbox management &amp; audit, calendar management &amp; audit, travel coordination, correspondence, scheduling, and documentation — so your day runs on your priorities, not whoever emailed last.</p>
+        <span class="service-link">View case studies →</span>
+      </button>
+      <button class="service-card" data-jump="panel-data" data-maintab="tab-data">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+        </div>
+        <h3>Data Entry &amp; CRM Management</h3>
+        <p>Payroll and financial data encoding, e-commerce order processing, and HubSpot CRM fundamentals — clean, accurate records your team can actually rely on.</p>
+        <span class="service-link">See the details →</span>
+      </button>
+      <button class="service-card" data-jump="panel-social" data-maintab="tab-social">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </div>
+        <h3>Social Media Management</h3>
+        <p>Content calendar systems, scheduling, in-house Instagram management, and AI-assisted video ad production — consistent posting without it eating your week.</p>
+        <span class="service-link">View the results →</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CASE STUDIES ================= -->
+<section id="case-studies">
+  <div class="container">
+    <div class="section-head">
+      <h2>Case studies</h2>
+      <p>How each service actually works, with real structures, systems, and — where I have real client work — real results.</p>
+    </div>
+
+    <div class="tabbar" id="mainTabbar">
+      <button class="tabbtn active" data-group="cs-main" data-target="panel-ea" id="tab-ea">Executive Assistance</button>
+      <button class="tabbtn" data-group="cs-main" data-target="panel-data" id="tab-data">Data Entry &amp; CRM</button>
+      <button class="tabbtn" data-group="cs-main" data-target="panel-social" id="tab-social">Social Media</button>
+    </div>
+
+    <!-- ---- EA PANEL ---- -->
+    <div class="tabpanel active" id="panel-ea" data-group="cs-main">
+      <div class="subtabbar" id="eaSubTabbar">
+        <button class="subtabbtn active" data-group="ea-sub" data-target="panel-inbox">Inbox Management</button>
+        <button class="subtabbtn" data-group="ea-sub" data-target="panel-calendar">Calendar Management</button>
+        <button class="subtabbtn" data-group="ea-sub" data-target="panel-travel">Travel Coordination</button>
+      </div>
+
+      <!-- INBOX -->
+      <div class="tabpanel active" id="panel-inbox" data-group="ea-sub">
+        <p class="case-note">Built using a fictional executive and company — Marcus Whitfield, COO of Solvane Energy Group — to demonstrate my inbox audit process end to end. No real client data is shown.</p>
+
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-num">1,400+</div><div class="stat-label">Unread emails, 3+ months of backlog</div></div>
+          <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Labels or folders in use</div></div>
+          <div class="stat-card"><div class="stat-num">30–40%</div><div class="stat-label">Of daily volume was newsletters &amp; promos</div></div>
+          <div class="stat-card"><div class="stat-num">~65%</div><div class="stat-label">Of triage automated away by filters</div></div>
+        </div>
+
+        <h4 style="margin-bottom:16px;">Sorting the backlog with an Eisenhower matrix</h4>
+        <div class="matrix-wrap">
+          <div class="matrix-axis-y">Important ↑</div>
+          <div class="matrix-col">
+            <div class="matrix-grid">
+              <div class="matrix-cell">
+                <h5>Handles directly</h5><span class="matrix-tag">Urgent &amp; important</span>
+                <ul>
+                  <li>Vendor threatening to pause shipment</li>
+                  <li>Contract expires Friday — needs signature</li>
+                  <li>Board member requesting a 1:1 this week</li>
+                </ul>
+              </div>
+              <div class="matrix-cell">
+                <h5>Schedules for later</h5><span class="matrix-tag">Important, not urgent</span>
+                <ul>
+                  <li>Quarterly board deck — needs real review</li>
+                  <li>Following up on last month's proposal</li>
+                  <li>Family dinner invite</li>
+                </ul>
+              </div>
+              <div class="matrix-cell">
+                <h5>Delegates to me</h5><span class="matrix-tag">Urgent, not important</span>
+                <ul>
+                  <li>PTO approval request</li>
+                  <li>Overdue expense report reminder</li>
+                  <li>Team offsite RSVP</li>
+                </ul>
+              </div>
+              <div class="matrix-cell">
+                <h5>Archives</h5><span class="matrix-tag">Not urgent, not important</span>
+                <ul>
+                  <li>Weekly industry newsletter</li>
+                  <li>Webinar invite</li>
+                  <li>Shipping notification</li>
+                </ul>
+              </div>
+            </div>
+            <div class="matrix-axis-x"><span>Not urgent</span><span>Urgent →</span></div>
+          </div>
+        </div>
+
+        <h4 style="margin:40px 0 16px;">The label system I built</h4>
+        <div class="label-tree">
+          <div class="lt-item"><div class="lt-head"><span class="swatch" style="background:var(--rust);"></span>Priority — Action Needed</div></div>
+          <div class="lt-item">
+            <div class="lt-head"><span class="swatch" style="background:var(--blue);"></span>Work</div>
+            <ul class="lt-sub"><li>HR</li><li>Finance</li><li>Board / Investor</li><li>Operations</li></ul>
+          </div>
+          <div class="lt-item">
+            <div class="lt-head"><span class="swatch" style="background:var(--green);"></span>Clients</div>
+            <ul class="lt-sub"><li>Active Accounts</li><li>Proposals / Prospects</li></ul>
+          </div>
+          <div class="lt-item"><div class="lt-head"><span class="swatch" style="background:var(--amber);"></span>Personal</div></div>
+          <div class="lt-item">
+            <div class="lt-head"><span class="swatch" style="background:var(--gray);"></span>Reference / Low Priority</div>
+            <ul class="lt-sub"><li>Newsletters</li><li>Promotions &amp; Notifications</li></ul>
+          </div>
+        </div>
+        <p style="font-size:0.85rem;color:var(--text-faint);margin:14px 0 40px;">Five main labels, kept flat on purpose — Priority stays almost empty by default, so if something lands there, it's genuinely urgent and important.</p>
+
+        <h4 style="margin-bottom:16px;">Filters that do the first pass automatically</h4>
+        <ul class="filter-list">
+          <li><span class="f-trigger">Sender is a board member or investor, or subject mentions "board"</span><span class="f-arrow">→</span><span class="f-action">Priority — Action Needed, marked important</span></li>
+          <li><span class="f-trigger">Subject mentions "contract," "signature," or an urgent vendor deadline</span><span class="f-arrow">→</span><span class="f-action">Priority — Action Needed</span></li>
+          <li><span class="f-trigger">Subject mentions "PTO," "expense," "RSVP," or "approve"</span><span class="f-arrow">→</span><span class="f-action">Routed to my queue, tagged under Work</span></li>
+          <li><span class="f-trigger">Sender is a newsletter or marketing domain</span><span class="f-arrow">→</span><span class="f-action">Reference &gt; Newsletters, skips inbox, marked read</span></li>
+          <li><span class="f-trigger">Sender is a pre-approved personal contact</span><span class="f-arrow">→</span><span class="f-action">Personal, stays in inbox</span></li>
+        </ul>
+
+        <h4 style="margin:40px 0 16px;">Keeping it at zero — the daily sweep</h4>
+        <div class="sweep-row">
+          <div class="sweep-card"><div class="sweep-time">First 15 minutes</div><h5>Morning sweep</h5><p>Priority label checked first — anything urgent and important gets handled or delegated before anything else.</p></div>
+          <div class="sweep-card"><div class="sweep-time">Before lunch</div><h5>Midday sweep</h5><p>Clear anything new in Priority, process delegable items sitting in my queue, glance at Personal.</p></div>
+          <div class="sweep-card"><div class="sweep-time">End of day</div><h5>Close-out sweep</h5><p>Priority should be empty. Archive what's resolved, flag what's scheduled for tomorrow.</p></div>
+        </div>
+
+        <div style="margin-top:36px;">
+          <a class="btn btn-outline btn-sm" href="https://drive.google.com/file/d/1A17_oY3Oo139f0W-i7N4CY9CTZBejQhd/view?usp=drive_link" target="_blank" rel="noopener">View the finished inbox structure ↗</a>
+        </div>
+      </div>
+
+      <!-- CALENDAR -->
+      <div class="tabpanel" id="panel-calendar" data-group="ea-sub">
+        <p class="case-note">Same fictional persona as the inbox audit — Marcus Whitfield, COO of Solvane Energy Group — used for a consistent, connected case study. No real client data is shown.</p>
+
+        <p style="color:var(--text-dim);margin-bottom:22px;">A 2–4 week review of Marcus's calendar surfaced a pattern that repeated almost every week: meetings booked reactively, zero protected focus time, and personal time that quietly got bumped whenever the day ran long. Here's Monday, before and after the audit.</p>
+
+        <div class="toggle-row">
+          <button class="toggle-btn active" data-view="before" id="btnBefore">Before</button>
+          <button class="toggle-btn" data-view="after" id="btnAfter">After</button>
+        </div>
+
+        <div class="timeline-caption" id="timelineCaption">Back-to-back all day · 1 planned personal block, skipped · 0 buffers between meetings</div>
+
+        <div class="timeline-wrap">
+          <div class="timeline-ruler" id="timelineRuler"></div>
+          <div class="timeline-track-container">
+            <div class="timeline-track active" id="timeline-before">
+              <div class="tblock cat-personal" style="top:0%;height:4.17%;" title="Gym — frequently skipped/cancelled"><span>Gym (often skipped)</span></div>
+              <div class="tblock cat-admin" style="top:8.33%;height:4.17%;"><span>Inbox triage</span></div>
+              <div class="tblock cat-internal" style="top:12.5%;height:4.17%;"><span>Daily Ops Standup</span></div>
+              <div class="tblock cat-internal" style="top:16.67%;height:8.33%;" title="Delegation candidate — Marcus rarely speaks"><span>Engineering Sync</span></div>
+              <div class="tblock cat-investor" style="top:25%;height:4.17%;"><span>Board Observer Check-in</span></div>
+              <div class="tblock cat-client" style="top:29.17%;height:8.33%;"><span>Vendor Negotiation Call</span></div>
+              <div class="tblock cat-internal" style="top:37.5%;height:8.33%;"><span>Cross-Functional Planning</span></div>
+              <div class="tblock cat-admin" style="top:45.83%;height:4.17%;"><span>Expense report catch-up</span></div>
+              <div class="tblock cat-internal" style="top:50%;height:8.33%;"><span>HR Policy Review</span></div>
+              <div class="tblock cat-client" style="top:58.33%;height:8.33%;"><span>Customer Escalation Call</span></div>
+              <div class="tblock cat-internal" style="top:66.67%;height:4.17%;"><span>1:1 with Direct Report</span></div>
+              <div class="tblock cat-investor" style="top:70.83%;height:8.33%;"><span>Quarterly Metrics Prep</span></div>
+              <div class="tblock cat-internal" style="top:79.17%;height:8.33%;" title="Delegation candidate"><span>Marketing Sync</span></div>
+              <div class="tblock cat-personal" style="top:87.5%;height:8.33%;" title="Regularly pushed by late meetings"><span>Family Dinner (often cut short)</span></div>
+              <div class="tblock cat-admin" style="top:95.83%;height:4.17%;"><span>Email catch-up</span></div>
+            </div>
+            <div class="timeline-track" id="timeline-after">
+              <div class="tblock cat-internal protected" style="top:8.33%;height:12.5%;" title="Protected, no-meeting block"><span>Deep Work: Priority Planning</span></div>
+              <div class="tblock buffer" style="top:20.83%;height:2.08%;"></div>
+              <div class="tblock cat-investor" style="top:22.92%;height:6.25%;"><span>Investor Board Prep</span></div>
+              <div class="tblock buffer" style="top:29.17%;height:2.08%;"></div>
+              <div class="tblock cat-client" style="top:31.25%;height:6.25%;"><span>Vendor Negotiation Call</span></div>
+              <div class="tblock buffer" style="top:37.5%;height:2.08%;"></div>
+              <div class="tblock cat-internal" style="top:39.58%;height:6.25%;"><span>Cross-Functional Planning</span></div>
+              <div class="tblock cat-personal protected" style="top:45.83%;height:6.25%;"><span>Protected Lunch</span></div>
+              <div class="tblock buffer" style="top:52.08%;height:2.08%;"></div>
+              <div class="tblock cat-internal delegated" style="top:54.17%;height:4.17%;" title="Delegated to the Engineering Lead"><span>Engineering Sync (delegated)</span></div>
+              <div class="tblock cat-internal" style="top:58.33%;height:6.25%;"><span>1:1 with Direct Report</span></div>
+              <div class="tblock buffer" style="top:64.58%;height:2.08%;"></div>
+              <div class="tblock cat-internal" style="top:66.67%;height:6.25%;"><span>HR Policy Review</span></div>
+              <div class="tblock buffer" style="top:72.92%;height:2.08%;"></div>
+              <div class="tblock cat-admin" style="top:75%;height:4.17%;"><span>Admin: Expense Review</span></div>
+              <div class="tblock cat-personal protected" style="top:79.17%;height:8.33%;"><span>Protected Recharge Block</span></div>
+              <div class="tblock cat-personal" style="top:87.5%;height:8.33%;"><span>Family Dinner</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="legend-row">
+          <span class="legend-chip"><span class="legend-dot" style="background:var(--blue);"></span>Internal</span>
+          <span class="legend-chip"><span class="legend-dot" style="background:var(--purple);"></span>Investor</span>
+          <span class="legend-chip"><span class="legend-dot" style="background:var(--green);"></span>Client / Customer</span>
+          <span class="legend-chip"><span class="legend-dot" style="background:#E0985A;"></span>Admin</span>
+          <span class="legend-chip"><span class="legend-dot" style="background:var(--amber);"></span>Personal</span>
+          <span class="legend-chip"><span class="legend-dot" style="background:var(--gray);"></span>Buffer</span>
+          <span class="legend-chip">Dashed outline = protected or delegated</span>
+        </div>
+
+        <div class="stat-grid" style="margin-top:40px;">
+          <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Recurring meetings delegated, ~4 hrs/week freed</div></div>
+          <div class="stat-card"><div class="stat-num">10–15 min</div><div class="stat-label">Buffer added between every meeting</div></div>
+          <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">Daily protected blocks restored — lunch and recharge</div></div>
+          <div class="stat-card"><div class="stat-num">0</div><div class="stat-label">Change in total client &amp; investor touchpoints</div></div>
+        </div>
+
+        <p style="color:var(--text-dim);margin-top:24px;">What I recommended, and why it mattered: delegate the facilities and low-input syncs that don't need COO-level judgment, protect lunch and one recharge block every day, align deep work and high-stakes calls to the morning energy window, and require an agenda for any recurring meeting — or it comes off the calendar.</p>
+
+        <div style="margin-top:20px;">
+          <a class="btn btn-outline btn-sm" href="https://drive.google.com/file/d/1-4Jy4FBw8qYM_FP2jcyC1DrYYvSR6FDr/view?usp=drive_link" target="_blank" rel="noopener">View the full before &amp; after calendar ↗</a>
+        </div>
+      </div>
+
+      <!-- TRAVEL -->
+      <div class="tabpanel" id="panel-travel" data-group="ea-sub">
+        <p class="case-note">Built as a portfolio template based on my Travel and Tourism Management training — the same structure I'd apply to a real executive's trip.</p>
+
+        <div class="pcs-grid">
+          <div class="pcs-card"><h5>The problem</h5><p>Trips booked reactively, one confirmation email at a time, spread across the inbox. It's easy to miss a tight connection, double-book a hotel night, or notice a missing document two days before departure.</p></div>
+          <div class="pcs-card"><h5>The solution</h5><p>One tracker per trip: flights, ground transport, hotel confirmations, time-zone conversions, per-diem notes, and a document checklist — cross-checked against the calendar before anything is booked.</p></div>
+          <div class="pcs-card"><h5>The result</h5><p>Trip planning becomes a five-minute check the week before departure, with one single source of truth instead of six scattered email threads.</p></div>
+        </div>
+
+        <ul class="bullet-list" style="margin-top:8px;">
+          <li><strong>Pre-trip:</strong> confirm dates against the calendar, flag any conflicts before booking</li>
+          <li><strong>Booking:</strong> flights and hotels logged with confirmation numbers, cancellation windows, and cost</li>
+          <li><strong>Documentation:</strong> passport, visa, and insurance status checked against departure date</li>
+          <li><strong>Day-of:</strong> a single itinerary view with local time zones and ground transport times</li>
+          <li><strong>Post-trip:</strong> expenses logged and reconciled against the trip budget</li>
+        </ul>
+
+        <div style="margin-top:28px;">
+          <a class="btn btn-outline btn-sm" href="https://docs.google.com/spreadsheets/d/1CfSoLuh3DzM958fQyMlb8HCc2HcXSLI6lBhMnxrOfAg/edit?usp=drive_link" target="_blank" rel="noopener">View the travel planner template ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- DATA ENTRY / CRM PANEL ---- -->
+    <div class="tabpanel" id="panel-data" data-group="cs-main">
+      <p style="color:var(--text-dim);max-width:680px;margin-bottom:28px;">This is the work behind the scenes that keeps payroll accurate and orders moving — less visible than inbox or calendar work, but just as load-bearing.</p>
+
+      <ul class="bullet-list">
+        <li><strong>Payroll &amp; financial data encoding —</strong> built and now run the payroll system used company-wide for 20+ employees; processed payroll for 200+ medical staff via the Nexus platform; logged and categorized expenses across 7 partner offices for monthly reporting.</li>
+        <li><strong>E-commerce order processing —</strong> tracked and encoded product orders in Pancake POS, coordinating waybill printing directly with partner warehouse J&amp;T.</li>
+        <li><strong>CRM fundamentals —</strong> trained on HubSpot's core objects — contacts, companies, deals, tickets — plus properties and CRM customization, ready to apply on live client data.</li>
+      </ul>
+
+      <div class="tag-row" style="margin-top:24px;">
+        <span class="tag">Nexus</span>
+        <span class="tag">Pancake POS</span>
+        <span class="tag">HubSpot</span>
+        <span class="tag">Google Sheets</span>
+        <span class="tag">Google Looker Studio</span>
+        <span class="tag">LaborEdge</span>
+      </div>
+
+      <div class="closing-note">A dedicated case study for this service is still in progress. In the meantime, I'm happy to walk through the payroll system or the order-tracking workflow directly on a call.</div>
+    </div>
+
+    <!-- ---- SOCIAL PANEL ---- -->
+    <div class="tabpanel" id="panel-social" data-group="cs-main">
+      <p style="color:var(--text-dim);max-width:680px;margin-bottom:28px;">I built and run the content calendar and Instagram presence for Blackline Collective Digital Marketing Services in-house — from a blank calendar to a consistent publishing rhythm, including AI-assisted video ad production.</p>
+
+      <div class="stat-grid" style="grid-template-columns:repeat(2,1fr);max-width:600px;">
+        <div class="stat-card"><div class="stat-num">+69%</div><div class="stat-label">Views within two months (707.3K)</div></div>
+        <div class="stat-card"><div class="stat-num">+27.6%</div><div class="stat-label">Interactions within two months (1.3K)</div></div>
+      </div>
+
+      <ul class="bullet-list" style="margin-top:32px;">
+        <li><strong>Content calendar —</strong> 2 posts/week, run through a ClickUp pipeline with a QA check before anything goes live.</li>
+        <li><strong>In-house management —</strong> scheduling, posting, and organizing for @blacklinecollectiveph.</li>
+        <li><strong>AI-assisted video ads —</strong> produced using Google Flow, InfiniteTalk, and ElevenLabs.</li>
+      </ul>
+
+      <div class="btn-row" style="margin-top:28px;">
+        <a class="btn btn-primary btn-sm" href="https://www.instagram.com/blacklinecollectiveph/" target="_blank" rel="noopener">Visit @blacklinecollectiveph ↗</a>
+        <a class="btn btn-outline btn-sm" href="https://drive.google.com/drive/folders/1AQmGleGQIi2uajdfQ8EdkWD8JqNE1L8w?usp=drive_link" target="_blank" rel="noopener">View published work ↗</a>
+        <a class="btn btn-outline btn-sm" href="https://drive.google.com/drive/folders/1OBt_o2WuCIgLWcxdCpLPdCZA5nuGtWMX?usp=drive_link" target="_blank" rel="noopener">View analytics ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= TRACK RECORD ================= -->
+<section id="track-record">
+  <div class="container">
+    <div class="section-head">
+      <h2>Track record</h2>
+      <p>Two systems I built inside my current role, still running today — real company, real results.</p>
+    </div>
+
+    <div class="tr-grid">
+      <div class="tr-card">
+        <div class="tr-meta">Blackline Collective Digital Marketing Services · In-house · Live since July 2026</div>
+        <h4>Turning manual payroll into a system for a 20+ person team</h4>
+        <div class="tr-part"><b>Problem</b><p>Payroll was calculated manually every cycle, creating a bottleneck as the team grew past 20+ employees and pulling leadership's attention into repetitive admin.</p></div>
+        <div class="tr-part"><b>Solution</b><p>Built a dedicated payroll processor that standardizes hours, overtime, and deductions into one repeatable structure, tested it against the manual process for accuracy, and documented how to run and maintain it.</p></div>
+        <div class="tr-part"><b>Result</b><p>Payroll now runs on a system instead of a spreadsheet marathon, scaling cleanly as the team grows.</p></div>
+      </div>
+
+      <div class="tr-card">
+        <div class="tr-meta">Blackline Collective · People &amp; Finance / Marketing Technology · Two-quarter build</div>
+        <h4>Building the missing playbook for a brand-new e-commerce division</h4>
+        <div class="tr-part"><b>Problem</b><p>When the company expanded into e-commerce, there was no documented process to run on, and no way to check whether partners were being over- or under-audited on their expense cards.</p></div>
+        <div class="tr-part"><b>Solution</b><p>Mapped and documented the manual process end to end, flagged the parts ready for automation, and built a partner expense audit system checking declared expenses against SOA cards.</p></div>
+        <div class="tr-part"><b>Result</b><p>Within two quarters the division had sustained operations and clear role ownership — the audit system caught and resolved 10,000+ financial anomalies by June 2026.</p></div>
+      </div>
+    </div>
+
+    <div class="results-grid">
+      <div class="result-card"><div class="result-num">6+</div><div class="result-label">Recurring tasks handled weekly across People, Finance &amp; Marketing</div></div>
+      <div class="result-card"><div class="result-num">₱6M</div><div class="result-label">Revenue generated in 2 months for the e-commerce launch</div></div>
+      <div class="result-card"><div class="result-num">18+</div><div class="result-label">New team members recruited, growing the team from 4 to 20+</div></div>
+      <div class="result-card"><div class="result-num">24</div><div class="result-label">Roles &amp; responsibilities documented into delegable playbooks</div></div>
+      <div class="result-card"><div class="result-num">10+</div><div class="result-label">Operational systems built — payroll, scorecards, finance trackers</div></div>
+      <div class="result-card"><div class="result-num">50–60%</div><div class="result-label">Saved on equipment sourcing by finding better suppliers</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOOLS ================= -->
+<section id="tools">
+  <div class="container">
+    <div class="section-head">
+      <h2>Tools I work in</h2>
+      <p>The systems I use to turn scattered tasks into a working operation.</p>
+    </div>
+
+    <div class="tool-group">
+      <h5>Productivity &amp; admin</h5>
+      <div class="tag-row"><span class="tag">Google Workspace</span><span class="tag">Google Calendar</span><span class="tag">Microsoft Office</span><span class="tag">Google Looker Studio</span></div>
+    </div>
+    <div class="tool-group">
+      <h5>Communication</h5>
+      <div class="tag-row"><span class="tag">Gmail</span><span class="tag">Google Meet</span><span class="tag">Zoom</span><span class="tag">Loom</span><span class="tag">Slack</span><span class="tag">Discord</span></div>
+    </div>
+    <div class="tool-group">
+      <h5>AI &amp; automation</h5>
+      <div class="tag-row"><span class="tag">ChatGPT (custom GPTs)</span><span class="tag">Claude</span><span class="tag">Gemini</span><span class="tag">N8N</span></div>
+    </div>
+    <div class="tool-group">
+      <h5>Design &amp; content</h5>
+      <div class="tag-row"><span class="tag">Canva</span><span class="tag">CapCut</span><span class="tag">Adobe InDesign</span><span class="tag">Google Flow</span><span class="tag">InfiniteTalk</span><span class="tag">ElevenLabs</span></div>
+    </div>
+    <div class="tool-group">
+      <h5>Project management</h5>
+      <div class="tag-row"><span class="tag">ClickUp</span><span class="tag">Notion</span></div>
+    </div>
+    <div class="tool-group">
+      <h5>CRM, data &amp; order systems</h5>
+      <div class="tag-row"><span class="tag">HubSpot</span><span class="tag">Pancake POS</span><span class="tag">Nexus</span><span class="tag">LaborEdge</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process">
+  <div class="container">
+    <div class="section-head">
+      <h2>How we'll work</h2>
+      <p>The Founder-First Ops Method — four stages, repeated in a weekly rhythm.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-num">01</div>
+        <h5>Discovery</h5>
+        <p>A focused call, up to 30 minutes, to understand your pain points, current state, and initial preferences — how you like to communicate, what tools you're already using, and what "handled" looks like to you.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">02</div>
+        <h5>Setup</h5>
+        <p>In week one, I start with the inbox and calendar audit, since that's usually where the most time is being lost. From there I build the rest of the initial systems and document the SOPs we'll run on.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">03</div>
+        <h5>Execution</h5>
+        <p>I take on the day-to-day responsibilities and project-based work, keeping things moving without needing to be micromanaged.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">04</div>
+        <h5>Reporting</h5>
+        <p>A short weekly or monthly check-in using the EOS Level 10 format — wins, scorecards, to-dos, rocks, and issues — so you always know where things stand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PACKAGES ================= -->
+<section id="packages">
+  <div class="container">
+    <div class="section-head">
+      <h2>Three ways to work together</h2>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg-card">
+        <div class="pkg-name">Starter</div>
+        <div class="pkg-fit">Best for short-term support or one high-priority process to fix</div>
+        <div class="pkg-price">$800<span> / month</span></div>
+        <ul>
+          <li>Inbox management to zero</li>
+          <li>Calendar &amp; scheduling</li>
+          <li>Expense reporting in Google Sheets</li>
+          <li>Level 10 reporting rhythm</li>
+        </ul>
+      </div>
+      <div class="pkg-card featured">
+        <div class="pkg-badge">Most popular</div>
+        <div class="pkg-name">Professional</div>
+        <div class="pkg-fit">Best for the full ongoing operations relationship</div>
+        <div class="pkg-price">$1,200<span> / month</span></div>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Payroll processing support</li>
+          <li>SOP &amp; process documentation</li>
+          <li>Recruitment coordination</li>
+        </ul>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-name">Premium</div>
+        <div class="pkg-fit">Best for complex, multi-department needs with priority support</div>
+        <div class="pkg-price">$1,600<span> / month</span></div>
+        <ul>
+          <li>Everything in Professional</li>
+          <li>Partner &amp; vendor expense audits</li>
+          <li>Cross-department documentation</li>
+          <li>Priority same-day response</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ME ================= -->
+<section id="why">
+  <div class="container">
+    <div class="section-head">
+      <h2>Why work with me</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h5>Process-first thinking</h5>
+        <p>I don't just do the task — I document it, so the work survives even when I'm not the one doing it every time.</p>
+      </div>
+      <div class="why-card">
+        <h5>Range across People, Finance &amp; Marketing</h5>
+        <p>I've worked inside multiple departments and business lines, from payroll to e-commerce operations, so I don't need months to get up to speed.</p>
+      </div>
+      <div class="why-card">
+        <h5>Built for structured reporting</h5>
+        <p>I run on the EOS Level 10 method, so you get consistent, predictable updates instead of chasing me for status.</p>
+      </div>
+      <div class="why-card">
+        <h5>Proven under real growth pressure</h5>
+        <p>I helped scale a team from 4 to 20+ employees and helped stand up an entirely new business line, without letting quality slip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="container contact-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:28px;">
+        <h2>Let's talk</h2>
+        <p>Tell me what's eating your week — I'll tell you how I can take it off your plate.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="https://calendly.com/enricobgarcia-ph/30min" target="_blank" rel="noopener">Book a discovery call</a>
+        <button class="btn btn-outline" id="copyEmailBtn" type="button" data-email="enricobgarcia.ph@gmail.com">Copy my email</button>
+      </div>
+    </div>
+    <div class="contact-info">
+      <div class="contact-row"><span>Email</span><span style="display:flex;align-items:center;gap:10px;"><a href="mailto:enricobgarcia.ph@gmail.com">enricobgarcia.ph@gmail.com</a><button class="copy-mini" data-email="enricobgarcia.ph@gmail.com" type="button" aria-label="Copy email address">Copy</button></span></div>
+      <div class="contact-row"><span>Phone</span><span>+63 945 822 6014</span></div>
+      <div class="contact-row"><span>LinkedIn</span><a href="https://www.linkedin.com/in/enrico-garcia-478b1937a" target="_blank" rel="noopener">enrico-garcia-478b1937a ↗</a></div>
+      <div class="contact-row"><span>Instagram</span><a href="https://www.instagram.com/11ja1me/" target="_blank" rel="noopener">@11ja1me ↗</a></div>
+      <div class="contact-row"><span>Working hours</span><span>Mon–Fri, 8am–5pm EST</span></div>
+      <div class="contact-row"><span>Response time</span><span>Within 2 hours</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>Enrico Garcia — Operations &amp; Executive Assistant</span>
+    <span>Portfolio · 2026</span>
+  </div>
+</footer>
+
+<script>
+  // Smooth-scroll nav (JS-driven so it works inside sandboxed previews too)
+  document.querySelectorAll('[data-scroll]').forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.getElementById(el.getAttribute('data-scroll'));
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+
+  // Copy-to-clipboard for email buttons (works even where mailto: is blocked)
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(resolve, reject){
+      try{
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        resolve();
+      }catch(err){ reject(err); }
+    });
+  }
+  document.querySelectorAll('[data-email]').forEach(function(btn){
+    var originalLabel = btn.textContent;
+    btn.addEventListener('click', function(){
+      copyText(btn.getAttribute('data-email')).then(function(){
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(function(){
+          btn.textContent = originalLabel;
+          btn.classList.remove('copied');
+        }, 1800);
+      }).catch(function(){
+        window.location.href = 'mailto:' + btn.getAttribute('data-email');
+      });
+    });
+  });
+
+  // Mobile menu
+  var hamburgerBtn = document.getElementById('hamburgerBtn');
+  var mobilePanel = document.getElementById('mobilePanel');
+  hamburgerBtn.addEventListener('click', function(){
+    mobilePanel.classList.toggle('open');
+  });
+  mobilePanel.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){ mobilePanel.classList.remove('open'); });
+  });
+
+  // Generic tab switching
+  function activateTab(group, targetId){
+    document.querySelectorAll('[data-group="' + group + '"]').forEach(function(el){
+      var isBtn = el.classList.contains('tabbtn') || el.classList.contains('subtabbtn');
+      if(isBtn){
+        el.classList.toggle('active', el.getAttribute('data-target') === targetId);
+      } else {
+        el.classList.toggle('active', el.id === targetId);
+      }
+    });
+  }
+
+  document.querySelectorAll('.tabbtn, .subtabbtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      activateTab(btn.getAttribute('data-group'), btn.getAttribute('data-target'));
+    });
+  });
+
+  // Service card -> jump to matching case study tab
+  document.querySelectorAll('.service-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var target = card.getAttribute('data-jump');
+      activateTab('cs-main', target);
+      if(target === 'panel-ea'){ activateTab('ea-sub', 'panel-inbox'); }
+      document.getElementById('case-studies').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  // Calendar before/after toggle
+  var beforeBtn = document.getElementById('btnBefore');
+  var afterBtn = document.getElementById('btnAfter');
+  var beforeTrack = document.getElementById('timeline-before');
+  var afterTrack = document.getElementById('timeline-after');
+  var caption = document.getElementById('timelineCaption');
+  var captions = {
+    before: 'Back-to-back all day · 1 planned personal block, skipped · 0 buffers between meetings',
+    after: '8 buffers added between meetings · 2 protected personal blocks · 1 deep-work block · 1 meeting delegated'
+  };
+  function setView(view){
+    beforeBtn.classList.toggle('active', view === 'before');
+    afterBtn.classList.toggle('active', view === 'after');
+    beforeTrack.classList.toggle('active', view === 'before');
+    afterTrack.classList.toggle('active', view === 'after');
+    caption.textContent = captions[view];
+  }
+  beforeBtn.addEventListener('click', function(){ setView('before'); });
+  afterBtn.addEventListener('click', function(){ setView('after'); });
+
+  // Build ruler ticks (7:00 to 19:00)
+  var ruler = document.getElementById('timelineRuler');
+  var hours = ['7 AM','8','9','10','11','12 PM','1','2','3','4','5','6','7 PM'];
+  hours.forEach(function(label, i){
+    var tick = document.createElement('div');
+    tick.className = 'ruler-tick';
+    tick.style.top = (i * (100/12)) + '%';
+    tick.textContent = label;
+    ruler.appendChild(tick);
+  });
+</script>
+
+</body>
+</html>
